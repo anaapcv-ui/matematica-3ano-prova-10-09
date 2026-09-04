@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leitura Guiada · Detetives das Formas · Matemática 3º ano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#0ea5a4; --teal2:#14c3c1; --coral:#ff6b4a; --purple:#7c5cff; --yellow:#ffd23f;
+    --sun:#ff9f1c; --mint:#e8fbfa; --card:#ffffff; --ink:#26263a; --dim:#6b6b8a;
+    --pink:#ff8fab; --red:#ef5a6f; --blue:#3aa0ff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:
+      radial-gradient(circle at 10% 8%,#fff3cf,transparent 38%),
+      radial-gradient(circle at 92% 6%,#e6e0ff,transparent 40%),
+      linear-gradient(180deg,#eafcfb,#f4fbff);
+    font-family:'Nunito',system-ui,sans-serif;color:var(--ink);line-height:1.55;padding-bottom:70px}
+  h1,h2,h3,.baloo{font-family:'Baloo 2','Nunito',sans-serif}
+  header{background:linear-gradient(120deg,var(--teal),var(--purple));color:#fff;padding:18px 16px 22px;
+    border-bottom:6px solid var(--yellow);box-shadow:0 6px 0 #0b7f7e}
+  .wrap{max-width:820px;margin:0 auto;padding:0 16px}
+  .titlerow{display:flex;align-items:center;gap:14px}
+  .owl{font-size:2.6rem;filter:drop-shadow(0 3px 0 rgba(0,0,0,.15))}
+  h1{margin:0;font-size:1.6rem;text-shadow:0 2px 0 rgba(0,0,0,.15)}
+  .sub{font-size:.95rem;opacity:.95;margin-top:2px}
+  .hud{display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+  .bar{flex:1;min-width:160px;height:16px;background:#e6fbfa;border:3px solid #0b7f7e;border-radius:20px;overflow:hidden}
+  .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--yellow),var(--coral));transition:.4s}
+  .stars{background:#fff;color:var(--sun);border-radius:20px;padding:4px 12px;font-weight:800;border:3px solid var(--yellow);white-space:nowrap}
+  .intro{background:#fff;border:3px dashed var(--teal2);border-radius:18px;padding:14px 18px;margin:18px 0;font-size:1.02rem}
+  .intro b{color:var(--teal)}
+  .block{background:var(--card);border-radius:20px;margin:16px 0;box-shadow:0 5px 0 rgba(0,0,0,.08);overflow:hidden;border:3px solid #d8f3f2}
+  .bhead{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;color:#fff;font-family:'Baloo 2';font-size:1.2rem}
+  .bhead .n{background:#ffffff;color:#333;border-radius:50%;width:34px;height:34px;display:grid;place-items:center;font-weight:800;flex:none}
+  .bhead .chev{margin-left:auto;transition:.3s;font-size:1.2rem}
+  .block.open .chev{transform:rotate(180deg)}
+  .bbody{display:none;padding:16px 18px 20px}
+  .block.open .bbody{display:block;animation:pop .3s}
+  @keyframes pop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+  .bbody p{margin:.5em 0;font-size:1.05rem}
+  .pag{display:inline-block;background:var(--mint);color:var(--teal);border:2px solid var(--teal2);border-radius:20px;
+    padding:1px 10px;font-size:.82rem;font-weight:800;margin-left:6px}
+  .tabela{width:100%;border-collapse:collapse;margin:12px 0;background:#fff;font-size:.98rem}
+  .tabela th,.tabela td{border:2px solid #d8f3f2;padding:7px 9px;text-align:center}
+  .tabela th{background:var(--teal);color:#fff;font-family:'Baloo 2'}
+  .tabela td:first-child{text-align:left;font-weight:800}
+  .malha{border-collapse:collapse;margin:12px auto;font-family:'Baloo 2'}
+  .malha td,.malha th{border:2px solid var(--teal2);width:38px;height:38px;text-align:center;font-size:1rem}
+  .malha th{background:var(--mint);color:var(--teal)}
+  .malha td.mk{background:#ffe08a}
+  .words{background:var(--mint);border-left:6px solid var(--teal2);border-radius:12px;padding:12px 14px;margin:12px 0}
+  .words h4{margin:0 0 6px;color:var(--teal)}
+  .words li{margin:5px 0}
+  .words b{color:var(--coral)}
+  .qbox{background:#fffdf2;border:3px solid var(--yellow);border-radius:16px;padding:12px 14px;margin:12px 0}
+  .qbox .qq{font-weight:800;margin-bottom:8px;font-size:1.05rem}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:3px solid #e2eef0;border-radius:12px;
+    padding:11px 14px;margin:8px 0;font-size:1.02rem;font-family:inherit;cursor:pointer;transition:.15s}
+  .opt:hover{border-color:var(--teal2);transform:translateX(3px)}
+  .opt.right{border-color:var(--teal);background:#e2fbfa;color:#0b6b6a;font-weight:800}
+  .opt.wrong{border-color:var(--red);background:#ffeef0;color:#a23}
+  .opt .mk{float:right;font-weight:800}
+  .fb{margin-top:8px;font-size:.98rem;padding:8px 12px;border-radius:10px;display:none}
+  .fb.show{display:block}
+  .fb.ok{background:#e2fbfa;color:#0b6b6a;border:2px solid var(--teal2)}
+  .fb.no{background:#fff3f4;color:#a23;border:2px solid var(--red)}
+  .bdone{display:none;margin-top:12px;background:var(--teal);color:#fff;border-radius:14px;padding:10px 14px;font-weight:800;text-align:center;font-family:'Baloo 2'}
+  .bdone.show{display:block;animation:pop .3s}
+  .peg{background:#f3edff;border:3px solid var(--purple);border-radius:16px;padding:14px 16px;margin:18px 0}
+  .peg h3{color:var(--purple);margin:.2em 0 .4em}
+  .peg li{margin:6px 0}
+  .cov{width:100%;border-collapse:collapse;margin:8px 0;background:#fff;border-radius:12px;overflow:hidden}
+  .cov th,.cov td{border:2px solid #d8f3f2;padding:8px 10px;text-align:left;font-size:.98rem}
+  .cov th{background:var(--teal);color:#fff;font-family:'Baloo 2'}
+  .trophy{display:none;text-align:center;background:linear-gradient(120deg,#fff3c4,#ffe08a);border:4px solid var(--sun);
+    border-radius:22px;padding:24px;margin:20px 0}
+  .trophy.show{display:block;animation:pop .4s}
+  .trophy .big{font-size:3.4rem}
+  .trophy h2{color:var(--sun);margin:6px 0}
+  .savebar{position:fixed;bottom:0;left:0;right:0;background:#ffffffee;border-top:3px solid var(--teal2);
+    padding:8px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;backdrop-filter:blur(4px)}
+  .savebar small{color:var(--dim);font-weight:700}
+  .savebar button,a.nav{background:var(--teal);color:#fff;border:none;border-radius:12px;padding:9px 16px;
+    font-family:'Baloo 2';font-size:1rem;text-decoration:none;cursor:pointer;box-shadow:0 3px 0 #0b7f7e}
+  .savebar button.ghost{background:#fff;color:var(--teal);border:2px solid var(--teal2);box-shadow:0 3px 0 #cfeeed}
+  .modal{position:fixed;inset:0;background:rgba(38,38,58,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+  .modal.show{display:flex}
+  .modal .box{background:#fff;border-radius:20px;border:4px solid var(--yellow);max-width:340px;padding:22px;text-align:center;box-shadow:0 10px 0 rgba(0,0,0,.15)}
+  .modal .box p{font-size:1.1rem;font-weight:700}
+  .modal .box button{margin:6px;border:none;border-radius:12px;padding:10px 18px;font-family:'Baloo 2';font-size:1rem;cursor:pointer}
+  .modal .yes{background:var(--red);color:#fff;box-shadow:0 3px 0 #b23}
+  .modal .no{background:#eee;color:#444;box-shadow:0 3px 0 #ccc}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="titlerow">
+    <div class="owl">🔍</div>
+    <div>
+      <h1>Leitura Guiada — Detetives das Formas</h1>
+      <div class="sub">Matemática · 3º ano · Prova 10/09 — Unidade 7: A geometria e a diversidade cultural</div>
+    </div>
+  </div>
+  <div class="hud">
+    <div class="bar"><i id="pbar"></i></div>
+    <div class="stars">⭐ <span id="starct">0</span></div>
+  </div>
+</div></header>
+
+<div class="wrap">
+  <div class="intro">🔍 <b>Oi, jovem detetive!</b> Eu sou o <b>Téo, o Detetive das Formas</b>. Nossa missão tem duas partes: <b>1)</b> reconhecer as <b>figuras geométricas espaciais</b> escondidas na cultura de vários povos e <b>2)</b> aprender a <b>achar lugares e traçar caminhos</b> em mapas. 🌍 Clique em cada bloco para abrir, leia com atenção e responda as 3 perguntinhas. Cada acerto vale uma <b>estrela ⭐</b>. Bora investigar! 🧊📍</div>
+  <div id="blocks"></div>
+
+  <div class="trophy" id="trophy">
+    <div class="big">🏆🔍🧊</div>
+    <h2>Parabéns, Detetive das Formas!</h2>
+    <p>Você investigou todos os blocos! Agora corre para o <a class="nav" href="jogo-vf.html" style="display:inline-block;margin-top:6px">🎮 Jogo Verdadeiro ou Falso</a> e depois teste tudo no Simulado. Você é craque! ⭐</p>
+  </div>
+</div>
+
+<div class="savebar">
+  <small id="stamp">Seu progresso é salvo sozinho 💾</small>
+  <button class="ghost" onclick="askReset()">🔄 Recomeçar</button>
+  <a class="nav" href="index.html">⌂ Início</a>
+</div>
+
+<div class="modal" id="modal"><div class="box">
+  <p>🔄 Quer recomeçar a Leitura Guiada do zero?</p>
+  <button class="yes" onclick="doReset()">Sim, recomeçar</button>
+  <button class="no" onclick="closeModal()">Não</button>
+</div></div>
+
+<script>
+const store=(()=>{let mem={};return{
+  get(k){try{return localStorage.getItem(k)}catch(e){return (k in mem)?mem[k]:null}},
+  set(k,v){try{localStorage.setItem(k,v)}catch(e){mem[k]=v}},
+  del(k){try{localStorage.removeItem(k)}catch(e){delete mem[k]}}
+};})();
+const KEY='lg_mat3_detetives';
+const CORES=['#0ea5a4','#7c5cff','#ff6b4a','#3aa0ff','#ff9f1c','#14c3c1','#ff8fab','#7c5cff','#0ea5a4','#0ea5a4'];
+const B=[
+ {t:"O Brasil plural e as formas",e:"🌍",
+  html:`<p><span class="pag">livro p. 8 e 9</span></p>
+  <p>O Brasil tem <b>pluralismo cultural</b>: nossa sociedade é formada por pessoas de <b>muitas etnias e culturas</b>. Além dos <b>povos indígenas</b> que já viviam aqui, o país recebeu <b>imigrantes</b> de vários lugares. Por isso temos influência de várias culturas na <b>comida</b>, na <b>arquitetura</b>, nas <b>festas</b> e na <b>música</b>. 🎶</p>
+  <p>E o que isso tem a ver com Matemática? Tudo! Os <b>instrumentos musicais</b> de diferentes culturas, as <b>casas</b>, os <b>templos</b> e o <b>artesanato</b> se parecem com <b>figuras geométricas espaciais</b> (os sólidos). 🧊</p>
+  <p>Os sólidos se dividem em <b>dois grupos</b>:</p>
+  <p>🔲 <b>Não arredondadas</b> — não rolam, têm só faces planas: bloco retangular, cubo, prisma e pirâmide.</p>
+  <p>⚪ <b>Arredondadas</b> — têm parte curva e rolam: cilindro, cone e esfera.</p>`,
+  words:[["Pluralismo cultural","o Brasil é formado por muitas etnias e culturas diferentes"],
+         ["Figura geométrica espacial","o sólido, que ocupa espaço (dá para segurar)"],
+         ["Não arredondadas","bloco retangular, cubo, prisma e pirâmide — não rolam"],
+         ["Arredondadas","cilindro, cone e esfera — têm parte curva e rolam"]],
+  qs:[{q:"O que é pluralismo cultural?",o:["quando só existe uma cultura","quando a sociedade é formada por muitas etnias e culturas","quando ninguém tem cultura","um tipo de figura geométrica"],c:1,
+       ex:"O Brasil é plural: tem povos indígenas e imigrantes de vários lugares."},
+      {q:"Qual grupo tem só figuras espaciais ARREDONDADAS?",o:["cubo, prisma, pirâmide","bloco retangular, cubo, cone","cilindro, cone, esfera","pirâmide, prisma, esfera"],c:2,
+       ex:"Cilindro, cone e esfera têm parte curva — são as arredondadas."},
+      {q:"As figuras espaciais NÃO arredondadas são aquelas que:",o:["rolam facilmente","não rolam e têm faces planas","são sempre pequenas","não existem"],c:1,
+       ex:"Sem parte curva, elas não rolam: bloco retangular, cubo, prisma e pirâmide."}]},
+
+ {t:"Faces, arestas e vértices",e:"📐",
+  html:`<p><span class="pag">livro p. 10</span></p>
+  <p>Para investigar um sólido, o detetive procura <b>3 elementos</b>. Num <b>poliedro</b> (sólido de faces planas):</p>
+  <p>🟩 As <b>faces</b> são <b>polígonos</b> — cada "parede" plana do sólido.</p>
+  <p>📏 As <b>arestas</b> são <b>segmentos de reta</b> — e cada aresta é o <b>encontro de duas faces</b>.</p>
+  <p>📌 Os <b>vértices</b> são <b>pontos</b> — o vértice é o <b>ponto de encontro entre as arestas</b>.</p>
+  <p>Guarde bem essas três frases, porque elas caem direto na prova! 🕵️</p>`,
+  words:[["Face","é um polígono; a parede plana do sólido"],
+         ["Aresta","é um segmento de reta; o encontro de duas faces"],
+         ["Vértice","é um ponto; o encontro das arestas"],
+         ["Poliedro","sólido cujas faces são todas planas"]],
+  qs:[{q:"Em um poliedro, as faces são:",o:["pontos","polígonos","segmentos de reta","círculos sempre"],c:1,
+       ex:"As faces são polígonos (quadrados, retângulos, triângulos...)."},
+      {q:"O encontro de duas faces é chamado de:",o:["vértice","face","aresta","base"],c:2,
+       ex:"O encontro de duas faces é a aresta — um segmento de reta."},
+      {q:"O ponto de encontro entre as arestas recebe o nome de:",o:["vértice","aresta","polígono","face"],c:0,
+       ex:"Onde as arestas se encontram fica o vértice, que é um ponto."}]},
+
+ {t:"Bloco retangular — o cesto indígena",e:"📦",
+  html:`<p><span class="pag">livro p. 11 a 13</span></p>
+  <p>Os povos nativos do Brasil são chamados de <b>indígenas</b>. Eles vivem em <b>aldeias</b> espalhadas pelo país, com maior concentração na <b>Região Norte</b>. Hoje existem <b>mais de 300 povos indígenas</b> no Brasil. A <b>Funai</b> (Fundação Nacional dos Povos Indígenas), criada em <b>1967</b>, protege os direitos desses povos. 🪶</p>
+  <p>Muitos povos indígenas são conhecidos pelo <b>artesanato</b> feito à mão: redes, cestos e colares. O <b>trançado de capim dourado</b> é comum na Região Norte. E o <b>cesto de vime</b> se parece com um <b>bloco retangular</b>! 🧺</p>
+  <p>O <b>bloco retangular</b> tem <b>6 faces</b> (todas com formato de <b>retângulo</b>), <b>12 arestas</b> e <b>8 vértices</b>. Quando abrimos o molde dele no plano, temos a <b>planificação</b>. 📄</p>`,
+  words:[["Indígenas","povos nativos do Brasil; mais de 300 povos, muitos na Região Norte"],
+         ["Funai","criada em 1967 para proteger os direitos dos povos indígenas"],
+         ["Bloco retangular","6 faces retangulares, 12 arestas e 8 vértices"],
+         ["Planificação","o molde do sólido aberto e esticado no plano"]],
+  qs:[{q:"As faces do bloco retangular têm o formato de qual figura plana?",o:["triângulo","retângulo","círculo","pentágono"],c:1,
+       ex:"As 6 faces do bloco retangular são retângulos."},
+      {q:"Quantas arestas tem um bloco retangular?",o:["6 arestas","8 arestas","12 arestas","4 arestas"],c:2,
+       ex:"São 12 arestas (e também 6 faces e 8 vértices)."},
+      {q:"O que é a planificação de um sólido?",o:["o molde dele aberto e esticado no plano","a cor do sólido","o peso do sólido","o nome do sólido"],c:0,
+       ex:"Planificação é o molde aberto, antes de montar o sólido."}]},
+
+ {t:"Cubo — o bloco especial",e:"🎲",
+  html:`<p><span class="pag">livro p. 14</span></p>
+  <p>Preste atenção nesta regra do livro, porque ela é uma pegadinha certeira:</p>
+  <p>👉 Quando um <b>bloco retangular</b> tem <b>todas as arestas com a mesma medida</b>, ele recebe o nome de <b>cubo</b>.</p>
+  <p>E tem mais: <b>todas as faces do cubo são quadradas</b>. ⬜</p>
+  <p>Assim como o bloco retangular, o cubo tem <b>6 faces</b>, <b>12 arestas</b> e <b>8 vértices</b> — a diferença é que no cubo as arestas são todas <b>iguais</b> e as faces são <b>quadrados</b>.</p>
+  <p>Objetos que parecem um cubo: o <b>dado</b> 🎲, um cubo mágico e algumas caixinhas.</p>`,
+  words:[["Cubo","bloco retangular com todas as arestas da mesma medida"],
+         ["Faces do cubo","todas quadradas"],
+         ["Cubo em números","6 faces, 12 arestas e 8 vértices"]],
+  qs:[{q:"Quando um bloco retangular vira um cubo?",o:["quando é bem pequeno","quando todas as arestas têm a mesma medida","quando é colorido","quando rola pela mesa"],c:1,
+       ex:"Arestas todas iguais = cubo. É a definição do livro."},
+      {q:"Todas as faces do cubo têm o formato de:",o:["triângulo","círculo","quadrado","losango"],c:2,
+       ex:"As 6 faces do cubo são quadradas."},
+      {q:"Quantas faces tem o cubo?",o:["6 faces","4 faces","8 faces","12 faces"],c:0,
+       ex:"São 6 faces quadradas — como no dado."}]},
+
+ {t:"Prisma — o telhado da palafita",e:"🏚️",
+  html:`<p><span class="pag">livro p. 15 a 17</span></p>
+  <p>O <b>formato das moradias</b> muda conforme o costume de cada povo. Há brasileiros que moram em <b>comunidades ribeirinhas</b>, às margens dos rios, e constroem <b>casas de palafita</b> — feitas sobre <b>troncos ou pilares</b> para não serem inundadas quando o rio enche. 🌊</p>
+  <p>Nessas casas: as <b>paredes e o piso</b> formam um <b>bloco retangular</b>, e o <b>telhado</b> se parece com um <b>prisma</b>. 🏠</p>
+  <p>O <b>prisma</b> tem <b>2 bases iguais</b> e as outras faces são as <b>faces laterais</b>, que têm formato de <b>retângulo</b>. O prisma recebe o nome da sua base: se a base é um <b>triângulo</b>, é um <b>prisma de base triangular</b>. 🔺</p>
+  <p>⚠️ Descoberta importante: o <b>bloco retangular</b> e o <b>cubo também são prismas</b>! A diferença é o formato da base — neles a base é um retângulo ou um quadrado.</p>`,
+  words:[["Palafita","casa construída sobre troncos ou pilares, à margem dos rios"],
+         ["Prisma","tem 2 bases iguais e faces laterais retangulares"],
+         ["Faces laterais","as faces do prisma que não são as bases"],
+         ["Nome do prisma","vem do formato da base (triangular, retangular...)"]],
+  qs:[{q:"Por que as casas de palafita são construídas sobre troncos ou pilares?",o:["para ficarem mais bonitas","para evitar que sejam inundadas quando o rio enche","para pesarem menos","para virarem um cubo"],c:1,
+       ex:"Nas cheias do rio, a palafita fica acima da água."},
+      {q:"As faces laterais de um prisma têm o formato de:",o:["círculo","triângulo sempre","retângulo","esfera"],c:2,
+       ex:"As faces laterais do prisma são retângulos; as bases é que mudam."},
+      {q:"O bloco retangular e o cubo são prismas?",o:["Sim, os dois são prismas","Não, nenhum dos dois","Só o cubo é","Só o bloco retangular é"],c:0,
+       ex:"O livro confirma: os dois são prismas — muda o formato da base."}]},
+
+ {t:"Pirâmide — o alto dos templos",e:"⛪",
+  html:`<p><span class="pag">livro p. 18 a 20</span></p>
+  <p>A <b>diversidade religiosa</b> também faz parte da cultura brasileira. Pelo país há muitos <b>templos</b> diferentes, como a <b>Catedral de São Sebastião</b>, em Ribeirão Preto (SP), e a <b>Igreja Presbiteriana</b> de Goiânia (GO). ⛪</p>
+  <p>A <b>parte mais alta</b> desses templos se parece com uma <b>pirâmide</b>. 🔺</p>
+  <p>A pirâmide tem <b>uma base</b> (um polígono) e as <b>faces laterais são triângulos</b>, que se encontram todas num <b>único vértice</b> lá no alto — o "bico". 📌</p>
+  <p>⚠️ Atenção: <b>nem toda pirâmide tem base quadrada!</b> A base pode ser um triângulo, um quadrado, um pentágono... e o nome da pirâmide vem da base.</p>`,
+  words:[["Pirâmide","tem 1 base e faces laterais triangulares que se juntam num vértice"],
+         ["Faces laterais da pirâmide","são sempre triângulos"],
+         ["Base da pirâmide","pode ser triângulo, quadrado, pentágono..."]],
+  qs:[{q:"As faces laterais de uma pirâmide têm o formato de:",o:["retângulo","triângulo","círculo","quadrado sempre"],c:1,
+       ex:"Na pirâmide, as faces laterais são triângulos que se encontram no topo."},
+      {q:"A base de uma pirâmide:",o:["é sempre um quadrado","é sempre um círculo","pode ser vários polígonos diferentes","não existe"],c:2,
+       ex:"O livro diz: nem todas as pirâmides têm base quadrada."},
+      {q:"Que parte dos templos se parece com uma pirâmide?",o:["a porta","a parte mais alta","o chão","as janelas"],c:1,
+       ex:"É a parte mais alta, o topo pontudo do templo."}]},
+
+ {t:"Arredondadas: cilindro, cone e esfera",e:"⚪",
+  html:`<p><span class="pag">livro p. 20 a 24</span></p>
+  <p>Agora as figuras que <b>rolam</b>! Cada uma apareceu numa cultura diferente:</p>
+  <p>🥁 <b>CILINDRO</b> — o Brasil tem grande influência das <b>culturas africanas</b>, onde cantos, danças e rituais vêm com <b>tambores</b>. A <b>caixa</b> da bateria tem formato de cilindro. O cilindro <b>não tem vértices nem arestas</b>, e suas <b>2 bases são círculos</b>.</p>
+  <p>🍦 <b>CONE</b> — muitas construções brasileiras têm traços da <b>arquitetura europeia</b>, como o <b>Palácio da Ilha Fiscal</b>, no Rio de Janeiro, inaugurado em <b>1889</b>. Partes dele parecem cones. O cone tem <b>1 vértice</b> (o biquinho) e a <b>base é um círculo</b>.</p>
+  <p>🏮 <b>ESFERA</b> — o Brasil recebeu <b>imigrantes asiáticos</b> (japoneses, chineses, tailandeses). No bairro da <b>Liberdade</b>, em São Paulo, há a festa do <b>Ano-Novo Chinês</b>, com <b>luminárias de papel</b> que parecem esferas. A esfera <b>não tem vértices, nem arestas, nem base</b>.</p>`,
+  words:[["Cilindro","2 bases circulares; sem vértices e sem arestas (o tambor)"],
+         ["Cone","1 vértice e 1 base circular (o Palácio da Ilha Fiscal)"],
+         ["Esfera","não tem vértice, nem aresta, nem base (a luminária chinesa)"]],
+  qs:[{q:"O cilindro tem vértices e arestas?",o:["tem os dois","não tem nem vértices nem arestas","só tem vértices","só tem arestas"],c:1,
+       ex:"O cilindro não tem vértices nem arestas — suas bases são círculos."},
+      {q:"Quantos vértices tem o cone?",o:["nenhum","1 vértice","4 vértices","8 vértices"],c:1,
+       ex:"O cone tem 1 vértice, que é o biquinho no topo."},
+      {q:"A esfera tem base?",o:["não tem vértice, nem aresta, nem base","tem 2 bases","tem 1 base quadrada","tem 6 faces"],c:0,
+       ex:"A esfera é totalmente redonda: sem vértice, sem aresta e sem base."}]},
+
+ {t:"Achando lugares na malha quadriculada",e:"🗺️",
+  html:`<p><span class="pag">livro p. 25 a 29</span></p>
+  <p>Segunda parte da missão: <b>movimentação no espaço</b>! Numa <b>malha quadriculada</b>, cada <b>linha</b> tem uma <b>letra</b> e cada <b>coluna</b> tem um <b>número</b>. Juntando a letra e o número, achamos qualquer lugar. 📍</p>
+  <p>No livro, a casa da Camila fica em <b>D3</b> (linha D, coluna 3) e a casa da Maiara em <b>B5</b>. Veja como se lê:</p>
+  <table class="malha"><tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+  <tr><th>A</th><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>B</th><td></td><td></td><td></td><td></td><td class="mk">B5</td></tr>
+  <tr><th>C</th><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>D</th><td></td><td></td><td class="mk">D3</td><td></td><td></td></tr></table>
+  <p>🚢 Na <b>batalha-naval</b> usamos a mesma ideia: o <b>submarino ocupa 2</b> retângulos e o <b>navio ocupa 3</b>. As embarcações <b>não podem encostar</b> umas nas outras, nem por um lado nem por um vértice.</p>
+  <p>♟️ No <b>xadrez</b> também! A posição das peças é dita com uma <b>letra minúscula e um número</b> — por exemplo, o rei preto em <b>e8</b>.</p>`,
+  words:[["Malha quadriculada","grade em que a linha é uma letra e a coluna é um número"],
+         ["Localização","junta a letra e o número, como D3 ou B5"],
+         ["Batalha-naval","submarino ocupa 2 espaços; navio ocupa 3; não podem se encostar"],
+         ["Xadrez","posição indicada por letra minúscula + número (ex.: e8)"]],
+  qs:[{q:"Na malha quadriculada, como localizamos um lugar?",o:["só com um número","só com uma cor","juntando uma letra e um número","medindo com a régua"],c:2,
+       ex:"A letra indica a linha e o número indica a coluna, como D3."},
+      {q:"Na batalha-naval, quantos espaços o navio ocupa?",o:["3 espaços","1 espaço","2 espaços","5 espaços"],c:0,
+       ex:"O navio ocupa 3 retângulos; o submarino ocupa 2."},
+      {q:"No xadrez, a posição de uma peça é indicada por:",o:["duas letras","uma letra minúscula e um número","só um número","um desenho"],c:1,
+       ex:"Como o rei preto em e8: letra minúscula + número."}]},
+
+ {t:"Trajetos: descrevendo caminhos",e:"🧭",
+  html:`<p><span class="pag">livro p. 30 e 36</span></p>
+  <p>Existem várias <b>comunidades quilombolas</b> no Brasil, formadas principalmente por <b>descendentes de africanos que foram escravizados</b>. No livro, o menino <b>Kiros</b> mora numa comunidade quilombola e precisa descrever o caminho de casa até a escola. 🏫</p>
+  <p>Para descrever um <b>trajeto</b>, usamos palavras como <b>seguir em frente</b>, <b>virar à direita</b> e <b>virar à esquerda</b>, contando <b>quantas casas ou quadras</b> andamos. ➡️⬅️</p>
+  <p>Também dá para traçar caminhos numa <b>planta baixa</b> — o desenho visto de cima, como o da academia de <b>capoeira</b> do livro. Um detalhe legal: <b>duas pessoas podem descrever caminhos diferentes</b> e as duas chegarem ao mesmo lugar! 🥋</p>`,
+  words:[["Comunidade quilombola","formada por descendentes de africanos escravizados"],
+         ["Trajeto","o caminho percorrido, descrito com direita, esquerda e quantas quadras"],
+         ["Planta baixa","o desenho de um lugar visto de cima"]],
+  qs:[{q:"As comunidades quilombolas são formadas principalmente por:",o:["imigrantes japoneses","descendentes de africanos que foram escravizados","povos da Europa","turistas"],c:1,
+       ex:"Quilombolas são descendentes de africanos escravizados no Brasil."},
+      {q:"Para descrever um trajeto usamos palavras como:",o:["direita e esquerda","quadrado e círculo","aresta e vértice","face e base"],c:0,
+       ex:"Trajeto se descreve com direita, esquerda e quantas quadras andar."},
+      {q:"O que é uma planta baixa?",o:["uma planta pequena do jardim","o desenho de um lugar visto de cima","um tipo de pirâmide","uma malha quadriculada de xadrez"],c:1,
+       ex:"É o desenho do lugar visto de cima, como um mapa do prédio."}]},
+
+ {t:"Desafio final dos Detetives",e:"🏆",
+  html:`<p><span class="pag">livro p. 39 — O que eu aprendi</span></p>
+  <p>🔍 Chegou o <b>caso final</b>! O livro diz que nesta unidade você aprendeu duas coisas: <b>reconhecer e descrever figuras geométricas espaciais</b> e <b>descrever e traçar percursos</b>. Vamos misturar tudo! 🌟</p>`,
+  words:[["Dica do Téo","releia os blocos que achou difíceis antes de responder. Você consegue! 💪"]],
+  qs:[{q:"Qual grupo tem SÓ figuras que NÃO são arredondadas?",o:["cilindro, cone, esfera","cubo, prisma, pirâmide","esfera, cubo, cone","cone, bloco retangular, esfera"],c:1,
+       ex:"Cubo, prisma e pirâmide não rolam — são as não arredondadas."},
+      {q:"O cesto de vime indígena se parece com qual sólido?",o:["esfera","cone","bloco retangular","pirâmide"],c:2,
+       ex:"O livro mostra o cesto de vime com formato de bloco retangular."},
+      {q:"Nesta unidade você aprendeu a reconhecer figuras espaciais e também a:",o:["descrever e traçar percursos","fazer contas de dividir","medir a temperatura","escrever poemas"],c:0,
+       ex:"São os dois objetivos do 'O que eu aprendi' na página 39."}]}
+];
+
+let st=JSON.parse(store.get(KEY)||'null')||{ans:{},open:0};
+const box=document.getElementById('blocks');
+B.forEach((b,i)=>{
+  const cor=CORES[i%CORES.length];
+  const d=document.createElement('div');d.className='block';d.id='b'+i;
+  let qh='';
+  b.qs.forEach((q,j)=>{
+    let opts='';
+    q.o.forEach((o,k)=>{opts+=`<button class="opt" id="o${i}_${j}_${k}" onclick="pick(${i},${j},${k})">${o}</button>`;});
+    qh+=`<div class="qbox"><div class="qq">🔎 ${q.q}</div>${opts}<div class="fb" id="f${i}_${j}"></div></div>`;
+  });
+  let wh='<div class="words"><h4>📌 Palavras importantes</h4><ul>';
+  b.words.forEach(w=>{wh+=`<li><b>${w[0]}:</b> ${w[1]}</li>`;});wh+='</ul></div>';
+  d.innerHTML=`<div class="bhead" style="background:${cor}" onclick="toggle(${i})">
+      <span class="n">${b.e}</span> ${i<B.length-1?('Bloco '+(i+1)+' — '):''}${b.t}
+      <span class="chev">▾</span></div>
+    <div class="bbody">${b.html}${wh}${qh}
+      <div class="bdone" id="done${i}">✅ Bloco concluído! Mandou bem, detetive! ⭐</div></div>`;
+  box.appendChild(d);
+});
+
+const extra=document.createElement('div');extra.className='peg';
+extra.innerHTML=`<h3>🕵️ 10 pegadinhas que o Téo já viu na prova</h3>
+<ol>
+<li>Trocar <b>aresta</b> por <b>vértice</b>: aresta é o encontro de <b>duas faces</b>; vértice é o encontro das <b>arestas</b>.</li>
+<li>Esquecer que, no poliedro, as <b>faces são polígonos</b>, as <b>arestas são segmentos de reta</b> e os <b>vértices são pontos</b>.</li>
+<li>Achar que o cubo é diferente do bloco retangular em tudo — o cubo <b>é</b> um bloco retangular com <b>todas as arestas iguais</b>.</li>
+<li>Dizer que o cubo tem 4 faces. São <b>6 faces quadradas</b> (12 arestas e 8 vértices).</li>
+<li>Não lembrar que <b>o cubo e o bloco retangular também são prismas</b>.</li>
+<li>Confundir as faces: no <b>prisma</b> as laterais são <b>retângulos</b>; na <b>pirâmide</b> são <b>triângulos</b>.</li>
+<li>Achar que toda pirâmide tem <b>base quadrada</b> — a base pode ser outro polígono.</li>
+<li>Dizer que o cilindro tem arestas. Ele <b>não tem vértices nem arestas</b>; o <b>cone tem 1 vértice</b>.</li>
+<li>Inverter a leitura da malha: a <b>letra</b> é a linha e o <b>número</b> é a coluna (D3, B5, e8).</li>
+<li>Na batalha-naval, esquecer que o <b>navio ocupa 3</b> e o <b>submarino 2</b>, e que eles <b>não podem se encostar</b>.</li>
+</ol>`;
+box.parentNode.insertBefore(extra,document.getElementById('trophy'));
+
+const covData=[["Pluralismo cultural e os 2 grupos de sólidos","Bloco 1","p. 8–9"],
+["Faces, arestas e vértices","Bloco 2","p. 10"],
+["Bloco retangular e planificação","Bloco 3","p. 11–13"],
+["Cubo","Bloco 4","p. 14"],
+["Prisma e faces laterais","Bloco 5","p. 15–17"],
+["Pirâmide","Bloco 6","p. 18–20"],
+["Cilindro, cone e esfera","Bloco 7","p. 20–24"],
+["Malha quadriculada, batalha-naval e xadrez","Bloco 8","p. 25–29"],
+["Trajetos e planta baixa","Bloco 9","p. 30 e 36"]];
+const cov=document.createElement('div');cov.className='peg';cov.style.borderColor='#0ea5a4';
+let covHtml=`<h3 style="color:#0ea5a4">🗂️ Onde estudar cada tópico</h3><table class="cov"><tr><th>Tópico</th><th>Bloco</th><th>Livro</th></tr>`;
+covData.forEach(t=>{covHtml+=`<tr><td>${t[0]}</td><td>${t[1]}</td><td>${t[2]}</td></tr>`;});
+covHtml+='</table>';cov.innerHTML=covHtml;
+box.parentNode.insertBefore(cov,document.getElementById('trophy'));
+
+function toggle(i){document.getElementById('b'+i).classList.toggle('open');}
+function pick(i,j,k){
+  const q=B[i].qs[j];
+  if(st.ans[`${i}_${j}`]!==undefined) return;
+  st.ans[`${i}_${j}`]=k;
+  const chosen=document.getElementById(`o${i}_${j}_${k}`);
+  const fb=document.getElementById(`f${i}_${j}`);
+  if(k===q.c){chosen.classList.add('right');chosen.innerHTML+='<span class="mk">✔</span>';
+    fb.className='fb ok show';fb.innerHTML='🎉 Isso mesmo! '+q.ex;}
+  else{chosen.classList.add('wrong');chosen.innerHTML+='<span class="mk">✘</span>';
+    const right=document.getElementById(`o${i}_${j}_${q.c}`);right.classList.add('right');
+    fb.className='fb no show';fb.innerHTML='🙂 Quase! A certa é a verde. '+q.ex;}
+  B[i].qs[j].o.forEach((_,kk)=>{document.getElementById(`o${i}_${j}_${kk}`).style.pointerEvents='none';});
+  save();check(i);update();
+}
+function check(i){
+  const total=B[i].qs.length;
+  let ans=0;B[i].qs.forEach((q,j)=>{if(st.ans[`${i}_${j}`]!==undefined)ans++;});
+  if(ans===total){document.getElementById('done'+i).classList.add('show');}
+}
+function update(){
+  let stars=0,doneBlocks=0;
+  B.forEach((b,i)=>{let a=0;b.qs.forEach((q,j)=>{const v=st.ans[`${i}_${j}`];if(v!==undefined){a++;if(v===q.c)stars++;}});
+    if(a===b.qs.length)doneBlocks++;});
+  document.getElementById('starct').textContent=stars;
+  document.getElementById('pbar').style.width=(doneBlocks/B.length*100)+'%';
+  document.getElementById('trophy').classList.toggle('show',doneBlocks===B.length);
+}
+function restore(){
+  Object.keys(st.ans).forEach(key=>{
+    const [i,j]=key.split('_').map(Number);const k=st.ans[key];const q=B[i].qs[j];
+    const chosen=document.getElementById(`o${i}_${j}_${k}`);const fb=document.getElementById(`f${i}_${j}`);
+    if(!chosen)return;
+    if(k===q.c){chosen.classList.add('right');chosen.innerHTML+='<span class="mk">✔</span>';fb.className='fb ok show';fb.innerHTML='🎉 Isso mesmo! '+q.ex;}
+    else{chosen.classList.add('wrong');chosen.innerHTML+='<span class="mk">✘</span>';
+      document.getElementById(`o${i}_${j}_${q.c}`).classList.add('right');fb.className='fb no show';fb.innerHTML='🙂 Quase! A certa é a verde. '+q.ex;}
+    q.o.forEach((_,kk)=>{const el=document.getElementById(`o${i}_${j}_${kk}`);if(el)el.style.pointerEvents='none';});
+  });
+  B.forEach((b,i)=>check(i));update();
+  document.getElementById('b0').classList.add('open');
+}
+function save(){store.set(KEY,JSON.stringify(st));}
+function askReset(){document.getElementById('modal').classList.add('show');}
+function closeModal(){document.getElementById('modal').classList.remove('show');}
+function doReset(){store.del(KEY);location.reload();}
+restore();
+</script>
+</body>
+</html>
