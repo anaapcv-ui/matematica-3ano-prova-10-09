@@ -82,7 +82,7 @@
     <h2>📊 O quadro do detetive — decore este!</h2>
     <table class="q">
       <tr><th>Figura</th><th>Grupo</th><th>Faces</th><th>Arestas</th><th>Vértices</th></tr>
-      <tr><td>📦 Bloco retangular</td><td>não arredondada</td><td>6 (retângulos)</td><td>12</td><td>8</td></tr>
+      <tr><td>📦 Bloco retangular (paralelepípedo)</td><td>não arredondada</td><td>6 (retângulos)</td><td>12</td><td>8</td></tr>
       <tr><td>🎲 Cubo</td><td>não arredondada</td><td>6 (quadrados)</td><td>12</td><td>8</td></tr>
       <tr><td>🏚️ Prisma triangular</td><td>não arredondada</td><td>5 (2 triângulos + 3 retângulos)</td><td>9</td><td>6</td></tr>
       <tr><td>⛪ Pirâmide de base quadrada</td><td>não arredondada</td><td>5 (1 quadrado + 4 triângulos)</td><td>8</td><td>5</td></tr>
@@ -143,12 +143,12 @@ const C=[
  {cor:'#14c3c1',em:'⚪',t:'Cilindro, cone e esfera',resumo:'Cilindro: 2 bases circulares, 0 vértices. Cone: 1 vértice. Esfera: nada disso.',
   mais:'Cilindro = tambor africano (a caixa da bateria): sem vértices e sem arestas. Cone = Palácio da Ilha Fiscal (1889): 1 vértice e base circular. Esfera = luminária chinesa da Liberdade: sem vértice, sem aresta e sem base.',
   q:'Quantos vértices tem o cone?',o:['1 vértice','nenhum'],c:0,ex:'O cone tem o biquinho, que é 1 vértice.'},
- {cor:'#ff8fab',em:'🗺️',t:'Malha quadriculada',resumo:'A linha é uma LETRA e a coluna é um NÚMERO. Ex.: D3, B5, e8 no xadrez.',
-  mais:'Batalha-naval: submarino ocupa 2 retângulos, navio ocupa 3, e eles não podem se encostar (nem por lado, nem por vértice). No xadrez a posição usa letra minúscula + número.',
+ {cor:'#ff8fab',em:'🗺️',t:'Malha quadriculada',resumo:'Sempre uma LETRA e um NÚMERO juntos. Ex.: D3, B5, e8 no xadrez.',
+  mais:'⚠️ Cuidado: às vezes as letras ficam na lateral (linhas) e às vezes em cima (colunas) — olhe o desenho! Batalha-naval: submarino ocupa 2 retângulos, navio ocupa 3, e eles não podem se encostar (nem por lado, nem por vértice).',
   q:'Na batalha-naval, o navio ocupa…',o:['3 retângulos','1 retângulo'],c:0,ex:'Navio 3, submarino 2.'},
- {cor:'#7c5cff',em:'🧭',t:'Trajetos',resumo:'Descrever caminhos com direita, esquerda e quantas quadras andar.',
-  mais:'Kiros mora numa comunidade quilombola (descendentes de africanos escravizados). Também dá para traçar caminhos na planta baixa — o desenho do lugar visto de cima. Caminhos diferentes podem chegar ao mesmo lugar!',
-  q:'Planta baixa é o desenho do lugar…',o:['visto de cima','visto de lado'],c:0,ex:'É como olhar o lugar do alto.'}
+ {cor:'#7c5cff',em:'🧭',t:'Trajetos e deslocamento',resumo:'Direita, esquerda e quantas quadras. Na malha, conte por unidades.',
+  mais:'Kiros mora numa comunidade quilombola (descendentes de africanos escravizados). Planta baixa = o lugar visto de cima. Deslocamento por unidades: cima/baixo muda a LINHA; direita/esquerda muda a COLUNA. De B1, 3 para baixo e 2 para a direita = D4.',
+  q:'Andar para a direita na malha muda…',o:['a letra da coluna','o número da linha'],c:0,ex:'Direita e esquerda mexem na coluna.'}
 ];
 const grid=document.getElementById('grid');
 C.forEach((c,i)=>{
