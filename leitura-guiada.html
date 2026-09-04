@@ -182,10 +182,12 @@ const B=[
   html:`<p><span class="pag">livro p. 11 a 13</span></p>
   <p>Os povos nativos do Brasil são chamados de <b>indígenas</b>. Eles vivem em <b>aldeias</b> espalhadas pelo país, com maior concentração na <b>Região Norte</b>. Hoje existem <b>mais de 300 povos indígenas</b> no Brasil. A <b>Funai</b> (Fundação Nacional dos Povos Indígenas), criada em <b>1967</b>, protege os direitos desses povos. 🪶</p>
   <p>Muitos povos indígenas são conhecidos pelo <b>artesanato</b> feito à mão: redes, cestos e colares. O <b>trançado de capim dourado</b> é comum na Região Norte. E o <b>cesto de vime</b> se parece com um <b>bloco retangular</b>! 🧺</p>
-  <p>O <b>bloco retangular</b> tem <b>6 faces</b> (todas com formato de <b>retângulo</b>), <b>12 arestas</b> e <b>8 vértices</b>. Quando abrimos o molde dele no plano, temos a <b>planificação</b>. 📄</p>`,
+  <p>O <b>bloco retangular</b> tem <b>6 faces</b> (todas com formato de <b>retângulo</b>), <b>12 arestas</b> e <b>8 vértices</b>. Quando abrimos o molde dele no plano, temos a <b>planificação</b>. 📄</p>
+  <p>💡 <b>Duas palavras, a mesma figura:</b> o caderno de exercícios chama o bloco retangular de <b>paralelepípedo</b>. Se cair essa palavra na prova, é a mesma coisa — a caixa de suco, a caixa de sapato! 📦</p>`,
   words:[["Indígenas","povos nativos do Brasil; mais de 300 povos, muitos na Região Norte"],
          ["Funai","criada em 1967 para proteger os direitos dos povos indígenas"],
          ["Bloco retangular","6 faces retangulares, 12 arestas e 8 vértices"],
+         ["Paralelepípedo","outro nome do bloco retangular (aparece no caderno de exercícios)"],
          ["Planificação","o molde do sólido aberto e esticado no plano"]],
   qs:[{q:"As faces do bloco retangular têm o formato de qual figura plana?",o:["triângulo","retângulo","círculo","pentágono"],c:1,
        ex:"As 6 faces do bloco retangular são retângulos."},
@@ -261,9 +263,10 @@ const B=[
        ex:"A esfera é totalmente redonda: sem vértice, sem aresta e sem base."}]},
 
  {t:"Achando lugares na malha quadriculada",e:"🗺️",
-  html:`<p><span class="pag">livro p. 25 a 29</span></p>
-  <p>Segunda parte da missão: <b>movimentação no espaço</b>! Numa <b>malha quadriculada</b>, cada <b>linha</b> tem uma <b>letra</b> e cada <b>coluna</b> tem um <b>número</b>. Juntando a letra e o número, achamos qualquer lugar. 📍</p>
-  <p>No livro, a casa da Camila fica em <b>D3</b> (linha D, coluna 3) e a casa da Maiara em <b>B5</b>. Veja como se lê:</p>
+  html:`<p><span class="pag">livro p. 25 a 29 · caderno de exercícios p. 16 e 17</span></p>
+  <p>Segunda parte da missão: <b>movimentação no espaço</b>! Numa <b>malha quadriculada</b>, usamos sempre <b>uma letra e um número</b> juntos para achar um lugar. 📍</p>
+  <p>⚠️ <b>Atenção, detetive — pegadinha!</b> Às vezes as <b>letras ficam na lateral</b> (nas linhas) e os números em cima; outras vezes as <b>letras ficam em cima</b> (nas colunas) e os números na lateral. <b>Sempre olhe o desenho antes de responder</b> para ver onde estão as letras!</p>
+  <p>No livro, a casa da Camila fica em <b>D3</b> e a da Maiara em <b>B5</b>. Aqui as letras estão na lateral:</p>
   <table class="malha"><tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
   <tr><th>A</th><td></td><td></td><td></td><td></td><td></td></tr>
   <tr><th>B</th><td></td><td></td><td></td><td></td><td class="mk">B5</td></tr>
@@ -271,29 +274,32 @@ const B=[
   <tr><th>D</th><td></td><td></td><td class="mk">D3</td><td></td><td></td></tr></table>
   <p>🚢 Na <b>batalha-naval</b> usamos a mesma ideia: o <b>submarino ocupa 2</b> retângulos e o <b>navio ocupa 3</b>. As embarcações <b>não podem encostar</b> umas nas outras, nem por um lado nem por um vértice.</p>
   <p>♟️ No <b>xadrez</b> também! A posição das peças é dita com uma <b>letra minúscula e um número</b> — por exemplo, o rei preto em <b>e8</b>.</p>`,
-  words:[["Malha quadriculada","grade em que a linha é uma letra e a coluna é um número"],
-         ["Localização","junta a letra e o número, como D3 ou B5"],
+  words:[["Malha quadriculada","grade de quadradinhos com letras de um lado e números do outro"],
+         ["Localização","junta a letra e o número, como D3 ou B5 — confira onde estão as letras!"],
          ["Batalha-naval","submarino ocupa 2 espaços; navio ocupa 3; não podem se encostar"],
          ["Xadrez","posição indicada por letra minúscula + número (ex.: e8)"]],
   qs:[{q:"Na malha quadriculada, como localizamos um lugar?",o:["só com um número","só com uma cor","juntando uma letra e um número","medindo com a régua"],c:2,
-       ex:"A letra indica a linha e o número indica a coluna, como D3."},
+       ex:"Sempre uma letra e um número juntos, como D3 — mas olhe no desenho se as letras estão na lateral ou em cima."},
       {q:"Na batalha-naval, quantos espaços o navio ocupa?",o:["3 espaços","1 espaço","2 espaços","5 espaços"],c:0,
        ex:"O navio ocupa 3 retângulos; o submarino ocupa 2."},
       {q:"No xadrez, a posição de uma peça é indicada por:",o:["duas letras","uma letra minúscula e um número","só um número","um desenho"],c:1,
        ex:"Como o rei preto em e8: letra minúscula + número."}]},
 
  {t:"Trajetos: descrevendo caminhos",e:"🧭",
-  html:`<p><span class="pag">livro p. 30 e 36</span></p>
+  html:`<p><span class="pag">livro p. 30 e 36 · caderno de exercícios p. 17</span></p>
   <p>Existem várias <b>comunidades quilombolas</b> no Brasil, formadas principalmente por <b>descendentes de africanos que foram escravizados</b>. No livro, o menino <b>Kiros</b> mora numa comunidade quilombola e precisa descrever o caminho de casa até a escola. 🏫</p>
   <p>Para descrever um <b>trajeto</b>, usamos palavras como <b>seguir em frente</b>, <b>virar à direita</b> e <b>virar à esquerda</b>, contando <b>quantas casas ou quadras</b> andamos. ➡️⬅️</p>
+  <p>🧮 <b>Deslocamento na malha (cai no caderno de exercícios!):</b> dá para andar contando <b>unidades</b> — quadradinho por quadradinho. <b>Para baixo</b> e <b>para cima</b> muda o <b>número da linha</b>; <b>para a direita</b> e <b>para a esquerda</b> muda a <b>letra da coluna</b>.</p>
+  <p>Exemplo do caderno: a Cintia está em <b>B1</b>. O João está <b>3 unidades para baixo</b> (linha 1 → 4) e <b>2 para a direita</b> (coluna B → D). Então o João está em <b>D4</b>! 🎯 Conte devagar, um quadradinho de cada vez.</p>
   <p>Também dá para traçar caminhos numa <b>planta baixa</b> — o desenho visto de cima, como o da academia de <b>capoeira</b> do livro. Um detalhe legal: <b>duas pessoas podem descrever caminhos diferentes</b> e as duas chegarem ao mesmo lugar! 🥋</p>`,
   words:[["Comunidade quilombola","formada por descendentes de africanos escravizados"],
          ["Trajeto","o caminho percorrido, descrito com direita, esquerda e quantas quadras"],
+         ["Deslocamento na malha","andar contando unidades: cima/baixo muda a linha, direita/esquerda muda a coluna"],
          ["Planta baixa","o desenho de um lugar visto de cima"]],
   qs:[{q:"As comunidades quilombolas são formadas principalmente por:",o:["imigrantes japoneses","descendentes de africanos que foram escravizados","povos da Europa","turistas"],c:1,
        ex:"Quilombolas são descendentes de africanos escravizados no Brasil."},
-      {q:"Para descrever um trajeto usamos palavras como:",o:["direita e esquerda","quadrado e círculo","aresta e vértice","face e base"],c:0,
-       ex:"Trajeto se descreve com direita, esquerda e quantas quadras andar."},
+      {q:"Numa malha, andar 2 unidades para a direita muda:",o:["a letra da coluna","o número da linha","a cor do quadrado","o tamanho da figura"],c:0,
+       ex:"Direita e esquerda mexem na coluna (a letra); cima e baixo mexem na linha (o número)."},
       {q:"O que é uma planta baixa?",o:["uma planta pequena do jardim","o desenho de um lugar visto de cima","um tipo de pirâmide","uma malha quadriculada de xadrez"],c:1,
        ex:"É o desenho do lugar visto de cima, como um mapa do prédio."}]},
 
@@ -341,8 +347,10 @@ extra.innerHTML=`<h3>🕵️ 10 pegadinhas que o Téo já viu na prova</h3>
 <li>Confundir as faces: no <b>prisma</b> as laterais são <b>retângulos</b>; na <b>pirâmide</b> são <b>triângulos</b>.</li>
 <li>Achar que toda pirâmide tem <b>base quadrada</b> — a base pode ser outro polígono.</li>
 <li>Dizer que o cilindro tem arestas. Ele <b>não tem vértices nem arestas</b>; o <b>cone tem 1 vértice</b>.</li>
-<li>Inverter a leitura da malha: a <b>letra</b> é a linha e o <b>número</b> é a coluna (D3, B5, e8).</li>
+<li>Achar que a letra é <b>sempre</b> a linha: às vezes as letras estão <b>em cima</b> (colunas). Olhe o desenho!</li>
 <li>Na batalha-naval, esquecer que o <b>navio ocupa 3</b> e o <b>submarino 2</b>, e que eles <b>não podem se encostar</b>.</li>
+<li>Não reconhecer <b>paralelepípedo</b> — é o mesmo que <b>bloco retangular</b>.</li>
+<li>No deslocamento, trocar os eixos: <b>cima/baixo</b> muda a <b>linha</b>; <b>direita/esquerda</b> muda a <b>coluna</b>.</li>
 </ol>`;
 box.parentNode.insertBefore(extra,document.getElementById('trophy'));
 
