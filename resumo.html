@@ -90,7 +90,7 @@
   </div>
 
   <h2 class="sec">🗺️ Achando lugares e caminhos</h2>
-  <p>Na <b>malha quadriculada</b>, a <b>letra</b> é a linha e o <b>número</b> é a coluna. A casa da Camila fica em <b>D3</b>:</p>
+  <p>Na <b>malha quadriculada</b> usamos sempre <b>uma letra e um número</b>. ⚠️ <b>Cuidado:</b> às vezes as letras ficam na <b>lateral</b> (linhas), às vezes ficam <b>em cima</b> (colunas) — olhe o desenho antes de responder! A casa da Camila fica em <b>D3</b>:</p>
   <table class="malha"><tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
   <tr><th>A</th><td></td><td></td><td></td><td></td><td></td></tr>
   <tr><th>B</th><td></td><td></td><td></td><td></td><td class="mk">B5</td></tr>
@@ -98,13 +98,15 @@
   <tr><th>D</th><td></td><td></td><td class="mk">D3</td><td></td><td></td></tr></table>
   <p>🚢 <b>Batalha-naval:</b> submarino ocupa <b>2</b> retângulos, navio ocupa <b>3</b>, e nenhum pode <b>encostar</b> no outro (nem por lado, nem por vértice).<br>
   ♟️ <b>Xadrez:</b> a posição usa <b>letra minúscula + número</b> (o rei preto em <b>e8</b>).<br>
-  🧭 <b>Trajeto:</b> descreva com <b>direita</b>, <b>esquerda</b> e quantas quadras andar. A <b>planta baixa</b> é o lugar visto de cima.</p>
+  🧭 <b>Trajeto:</b> descreva com <b>direita</b>, <b>esquerda</b> e quantas quadras andar. A <b>planta baixa</b> é o lugar visto de cima.<br>
+  🧮 <b>Deslocamento por unidades:</b> <b>cima/baixo</b> muda o <b>número da linha</b>; <b>direita/esquerda</b> muda a <b>letra da coluna</b>. Ex.: de <b>B1</b>, andar 3 para baixo e 2 para a direita chega em <b>D4</b>.</p>
 
   <h2 class="sec">📚 Grade de Palavras Importantes</h2>
   <div class="grid">
     <div class="word"><b>Pluralismo cultural</b><span>o Brasil é formado por muitas etnias e culturas.</span></div>
     <div class="word"><b>Figura espacial</b><span>o sólido; ocupa espaço e dá para segurar.</span></div>
     <div class="word"><b>Não arredondadas</b><span>bloco retangular, cubo, prisma e pirâmide (não rolam).</span></div>
+    <div class="word"><b>Paralelepípedo</b><span>outro nome do bloco retangular (a caixa de suco).</span></div>
     <div class="word"><b>Arredondadas</b><span>cilindro, cone e esfera (têm parte curva e rolam).</span></div>
     <div class="word"><b>Face</b><span>é um polígono: a parede plana do sólido.</span></div>
     <div class="word"><b>Aresta</b><span>é um segmento de reta: o encontro de duas faces.</span></div>
@@ -126,7 +128,8 @@
     <div class="postit">📦🎲 Os dois têm <b>6 faces, 12 arestas e 8 vértices</b>. E os dois <b>são prismas</b>!</div>
     <div class="postit">🏚️ <b>Prisma</b>: laterais são <b>retângulos</b>. ⛪ <b>Pirâmide</b>: laterais são <b>triângulos</b>.</div>
     <div class="postit">🥁 Cilindro: <b>0 vértices e 0 arestas</b>. 🍦 Cone: <b>1 vértice</b>. 🏮 Esfera: <b>nada</b>.</div>
-    <div class="postit">🗺️ Na malha: <b>letra = linha</b>, <b>número = coluna</b> (D3, B5, e8).</div>
+    <div class="postit">🗺️ Na malha: sempre <b>letra + número</b> (D3, B5, e8). Veja no desenho <b>onde estão as letras</b>!</div>
+    <div class="postit">📦 <b>Paralelepípedo</b> = <b>bloco retangular</b>. Mesma figura, dois nomes.</div>
     <div class="postit">🚢 Batalha-naval: <b>navio 3</b>, <b>submarino 2</b>, e não podem se <b>encostar</b>.</div>
   </div>
 
@@ -153,7 +156,9 @@ const F=[
  ['O cubo e o bloco retangular são prismas?','Sim! Os dois são prismas.'],
  ['O cilindro tem vértices e arestas?','Não tem nenhum dos dois. Suas 2 bases são círculos.'],
  ['Quantos vértices tem o cone? E a esfera?','O cone tem 1 vértice. A esfera não tem vértice, nem aresta, nem base.'],
- ['Como se localiza um lugar na malha quadriculada?','Juntando a letra da linha com o número da coluna, como D3.'],
+ ['Como se localiza um lugar na malha quadriculada?','Juntando uma letra e um número, como D3 — conferindo antes se as letras estão na lateral ou em cima.'],
+ ['Como é o outro nome do bloco retangular?','Paralelepípedo — é a mesma figura.'],
+ ['De B1, andando 3 unidades para baixo e 2 para a direita, chego em qual posição?','Em D4: baixo/cima muda a linha, direita/esquerda muda a coluna.'],
  ['Quantos espaços ocupam o navio e o submarino na batalha-naval?','O navio ocupa 3 e o submarino ocupa 2 — e não podem se encostar.'],
  ['O que é uma planta baixa?','O desenho de um lugar visto de cima.']
 ];
